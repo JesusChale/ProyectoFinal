@@ -1,0 +1,345 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /* Reset para REMS - 62.5% = 10px de 16px */
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+/* Globales */
+body {background-color: dodgerblue;}
+
+img {max-width: 100%;}
+
+.contenedor {
+    max-width: 120rem;
+    /* = 1200px */
+    margin: 0 auto;
+}
+
+h1 {font-size: 3.8rem;}
+h2 {font-size: 3.4rem;}
+h3 {font-size: 3rem;}
+h4 {font-size: 2.6rem;}
+
+/* Utilidades */
+.seccion {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.fw300 {font-weight: 300;}
+.fw500 {font-weight: 500;}
+.centrar-texto {text-align: center;}
+.d-block {display: block!important;}
+.contenido-centrado {max-width: 800px;}
+.tres-columnas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 3rem;
+}
+
+/* Botones */
+.boton {
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    margin-top: 2rem;
+    display: inline-block;
+    text-align: center;
+    border: none;
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+.boton-amarrillo {
+    background-color: #E08709;
+}
+
+.boton-verde {
+    background-color: rgb(17, 144, 17);
+}
+.boton-gris {
+    background-color: rgb(190, 190, 190);
+    color: black;
+}
+.boton-gris:hover {
+    background-color: rgb(79, 79, 245);
+    color: white;
+}
+/* Header */
+.site-header {
+    background-color: #000000;
+    padding: 1rem 0 3rem 0;
+}
+.contenido-header {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 3rem;
+}
+
+/* Navegacion */
+.navegacion a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.8rem;
+    /* = 18px */
+    margin-right: 2rem;
+}
+.navegacion a:last-of-type {
+    margin-right: 0;
+}
+.navegacion a:hover {
+    color: rgb(53, 178, 187);
+}
+
+/*************** index.html ***************/
+
+/* con-sidebar */
+.principal {
+    background-color: white;
+}
+.con-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    column-gap: 4rem;
+}
+aside {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+main {
+    grid-column: 2 / 3;
+}
+
+/* Main */
+.subtitulo {
+    background-color: dodgerblue;
+    color: white;
+    padding: 1rem 0 1rem 1rem;
+    margin: 0 2rem 2rem 0;
+}
+/* Anuncios */
+.contenedor-anuncios {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-right: 1rem;
+}
+.anuncio {
+    border-color: black;
+    border-width: 1px;  
+}
+.img-anuncio {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    width: 257.7px;
+    height: 257.7px;
+}
+.contenido-anuncio {
+    padding: 1rem 1rem 1rem 2rem;
+    height: 210.8px;
+    position: relative;
+}
+.contenido-anuncio h3,
+.contenido-anuncio h4,
+.contenido-anuncio p {
+    margin: 0;
+}
+.contenido-anuncio h4 {
+    font-size: 2rem;
+}
+.precio {
+    color: rgb(233, 79, 79);
+    font-weight: 700;
+    position: absolute;
+    bottom: 8rem;
+}
+.contenido-anuncio a {
+    position: absolute;
+    bottom: 2rem;
+}
+
+
+/* Aside */
+.categorias {
+    margin: 1rem 0 0 0;
+    background-color: black;
+    padding: 0 0 1rem 0;
+}
+.categorias .subtitulo{
+    margin: 0;
+    padding: 0 0 0 1rem;
+}
+.categorias a {
+    padding: 1rem 0 1rem 2rem;
+    text-decoration: none;
+    color: white;
+}
+.categorias a:hover {
+    color: rgb(221, 88, 54);
+}
+
+/* Footer */
+.site-footer {
+    background-color: #000000;
+    margin: 0;
+}
+.contenedor-footer {
+    padding: 3rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+.navegacion.tres-columnas {column-gap: 15rem;}
+.footer-column a {display: block;}
+.footer-column h4 {
+    color: white;
+    margin: 0;
+}
+.footer-column img {max-width: 5rem;}
+.copyright {
+    margin: 0;
+    color: #ffffff;
+}
+
+/**************** contacto *****************/
+.contacto {
+    margin-right: 2rem;
+}
+label {
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+}
+.personal input:not([type="submit"]),
+.contacto textarea {
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    background-color: #e1e1e1;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 1rem;
+}
+textarea {
+    height: 20rem;
+}
+.check-correo {
+    max-width: 30rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/********************* cuenta ******************************/
+.cuenta {
+    display: flex;
+    justify-content: space-between;
+}
+.new-user {
+    flex-basis: 40%;
+    border-style: solid;
+    border-width: 1px;
+}
+.new-user p {
+    padding: 0 1rem;
+}
+.new-user a{
+    margin: 0 0 1rem 1rem;
+}
+.user {
+    flex-basis: calc(60% - 2rem);
+    margin-right: 1rem;
+}
+.user input:not([type="submit"]) {
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    background-color: #e1e1e1;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 1rem;
+}
+.user input[type="password"] {
+    margin-bottom: 0;
+}
+
+
+/**************** Ayuda **************/
+
+hr.solid {
+    border-top: 3px solid #bbb;
+    width: 80rem;
+  }
+
+.ayuda a {
+    padding: 1rem 0 1rem 2rem;
+    text-decoration: none;
+    color: dodgerblue;
+}
+.ayuda a:hover {
+    color: rgb(80, 79, 79);
+}
+
+.subsubtitulo{
+    color: dodgerblue ;
+}
+
+/************** Producto *********************/
+.producto{
+    display: flex;
+    justify-content: space-between;
+}
+.producto img {
+    padding: 0rem 1rem 0 1rem;
+    width: 277.7px;
+    height: 257.7px;
+    border: 1px solid #B5B5B5;
+    background: white;
+    margin-bottom: 2rem;
+}
+
+.producto .mostrar{
+    flex-basis: 40%;
+}
+
+.producto .datos{
+    flex-basis: 60%;
+}
+
+.producto .subtitulos{
+    color: dodgerblue;
+    font-size:25px;
+    margin-top:-4mm;
+    margin-bottom: -4mm;
+    padding: -10mm;
+}
+
+/*************** formulario ************/
+legend {
+    font-size: 2rem;
+    color: #4f4f4f;
+}

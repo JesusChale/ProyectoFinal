@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIXEL - Tecnología y Cómputo</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -33,9 +35,9 @@
         <main class="seccion">
             <h3 class="fw500 subtitulo">Te recomendamos</h3>
 
-            <div class="contenedor-anuncios">
-                <div class="anuncio">
-                    <img src="img/Productos/010343935594.jpg" alt="Proyector">
+            <div class="row row-cols-3 gy-4 gx-0">
+                <div class="col border">
+                    <img class="img-anuncio" src="img/Productos/010343935594.jpg" alt="Proyector">
                     <div class="contenido-anuncio">
                         <h4 class="fw500">PROYECTOR EPSON POWERLITE S39 3300 LUMENES</h4>
                         <p class="precio">8,847.00 MXN</p>
@@ -43,8 +45,8 @@
                     </div>
                 </div>
     
-                <div class="anuncio">
-                    <img src="img/Productos/845973089351.jpg" alt="Router Mercusys">
+                <div class="col border">
+                    <img class="img-anuncio" src="img/Productos/845973089351.jpg" alt="Router Mercusys">
                     <div class="contenido-anuncio">
                         <h4 class="fw500">Router Mercusys MW302R 300mbps</h4>
                         <p class="precio">$298.00 MXN</p>
@@ -52,10 +54,21 @@
                     </div>
                 </div>
 
-                <div class="anuncio">
-                    <img src="img/Productos/4713218469182.jpg" alt="SSD Adata">
+                <div class="col border">
+                    <img class="img-anuncio" src="img/Productos/4713218469182.jpg" alt="SSD Adata">
                     <div class="contenido-anuncio">
                         <h4 class="fw500">Disco Duro Solido 480GB Adata</h4>
+                        <p class="precio">$1,333.00 MXN</p>
+                        <a href="anuncio.html" class="boton boton-gris d-block">Ver Detalles</a>
+                    </div>
+                </div>
+
+                
+
+                <div class="col border">
+                    <img class="img-anuncio" src="img/Productos/4713218469182.jpg" alt="DD Adata">
+                    <div class="contenido-anuncio">
+                        <h4 class="fw500">Disco Duro 500GB Adata</h4>
                         <p class="precio">$1,333.00 MXN</p>
                         <a href="anuncio.html" class="boton boton-gris d-block">Ver Detalles</a>
                     </div>
