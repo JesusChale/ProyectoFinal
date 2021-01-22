@@ -134,11 +134,18 @@ main {
 }
 
 /* Main */
+/* Carousel */
+.carousel {
+    margin-right: 2rem;
+}
+.carousel-inner img {
+    height: 207.25px;
+}
 .subtitulo {
     background-color: dodgerblue;
     color: white;
     padding: 1rem 0 1rem 1rem;
-    margin: 0 2rem 2rem 0;
+    margin: 1rem 2rem 2rem 0;
 }
 /* Anuncios */
 .contenedor-anuncios {
@@ -178,10 +185,10 @@ main {
     position: absolute;
     bottom: 8rem;
 }
-.contenido-anuncio a {
+/*.contenido-anuncio a {
     position: absolute;
     bottom: 2rem;
-}
+}*/
 
 
 /* Aside */

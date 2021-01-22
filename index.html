@@ -10,6 +10,12 @@
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    
 </head>
 
 <body>
@@ -33,48 +39,71 @@
 
     <div class="contenedor con-sidebar principal">
         <main class="seccion">
-            <h3 class="fw500 subtitulo">Te recomendamos</h3>
 
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="img/office-banner.png" alt="First slide">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="img/mercusys.png" alt="Second slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </a>
+            </div>
+
+            <h3 class="fw500 subtitulo">Te recomendamos</h3>
             <div class="row row-cols-3 gy-4 gx-0">
                 <div class="col border">
                     <img class="img-anuncio" src="img/Productos/010343935594.jpg" alt="Proyector">
-                    <div class="contenido-anuncio">
+                    <div class="contenido-anuncio d-flex flex-column">
                         <h4 class="fw500">PROYECTOR EPSON POWERLITE S39 3300 LUMENES</h4>
                         <p class="precio">8,847.00 MXN</p>
-                        <a href="anuncio.html" class="boton boton-gris d-block">Ver Detalles</a>
+                        <a href="anuncio.html" class="boton boton-gris d-block stretched-link align-self-end mt-auto">Ver Detalles</a>
                     </div>
                 </div>
     
                 <div class="col border">
                     <img class="img-anuncio" src="img/Productos/845973089351.jpg" alt="Router Mercusys">
-                    <div class="contenido-anuncio">
+                    <div class="contenido-anuncio d-flex flex-column">
                         <h4 class="fw500">Router Mercusys MW302R 300mbps</h4>
                         <p class="precio">$298.00 MXN</p>
-                        <a href="anuncio.html" class="boton boton-gris d-block">Ver Detalles</a>
+                        <a href="anuncio.html" class="boton boton-gris d-block stretched-link align-self-end mt-auto">Ver Detalles</a>
                     </div>
                 </div>
 
                 <div class="col border">
                     <img class="img-anuncio" src="img/Productos/4713218469182.jpg" alt="SSD Adata">
-                    <div class="contenido-anuncio">
+                    <div class="contenido-anuncio d-flex flex-column">
                         <h4 class="fw500">Disco Duro Solido 480GB Adata</h4>
                         <p class="precio">$1,333.00 MXN</p>
-                        <a href="anuncio.html" class="boton boton-gris d-block">Ver Detalles</a>
+                        <a href="anuncio.html" class="boton boton-gris d-block stretched-link align-self-end mt-auto">Ver Detalles</a>
                     </div>
                 </div>
-
-                
 
                 <div class="col border">
                     <img class="img-anuncio" src="img/Productos/4713218469182.jpg" alt="DD Adata">
-                    <div class="contenido-anuncio">
+                    <div class="contenido-anuncio d-flex flex-column">
                         <h4 class="fw500">Disco Duro 500GB Adata</h4>
                         <p class="precio">$1,333.00 MXN</p>
-                        <a href="anuncio.html" class="boton boton-gris d-block">Ver Detalles</a>
+                        <a href="anuncio.html" class="boton boton-gris d-block stretched-link align-self-end mt-auto">Ver Detalles</a>
                     </div>
                 </div>
-
             </div>
+
         </main>
         <aside class="seccion contenedor">
             <input type="text" id="nombre" placeholder="Buscar">
