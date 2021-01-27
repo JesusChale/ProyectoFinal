@@ -14,11 +14,11 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
     
+    <script src = "sandbox.js"></script>
 </head>
 
-<body>
+<body onload="llenarCateg();">
     <header class="site-header">
         <div class="contenedor contenido-header">
             <div class="barra">
@@ -64,10 +64,16 @@
                     <span class="visually-hidden">Next</span>
                 </a>
             </div>
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb fw500 subtitulo">
+                  <li class="breadcrumb-item active" aria-current="page">Te recomendamos</li>
+                </ol>
+            </nav>
 
-            <h3 class="fw500 subtitulo">Te recomendamos</h3>
-            <div class="row row-cols-3 gy-4 gx-0">
-                <div class="col border">
+            
+            <div id = "productos" class="row row-cols-3 gy-4 gx-0">
+                <!--<div class="col border">
                     <img class="img-anuncio" src="img/Productos/010343935594.jpg" alt="Proyector">
                     <div class="contenido-anuncio d-flex flex-column">
                         <h4 class="fw500">PROYECTOR EPSON POWERLITE S39 3300 LUMENES</h4>
@@ -101,23 +107,22 @@
                         <p class="precio">$1,333.00 MXN</p>
                         <a href="anuncio.html" class="boton boton-gris d-block stretched-link align-self-end mt-auto">Ver Detalles</a>
                     </div>
-                </div>
+                </div>-->
             </div>
-
         </main>
         <aside class="seccion contenedor">
             <input type="text" id="nombre" placeholder="Buscar">
 
             <div class="categorias">
                 <p class="subtitulo">Categorias</p>
-                <a href="index.html">Almacenamiento</a><br>
-                <a href="index.html">Audio</a><br>
-                <a href="index.html">Cables y accesorios</a><br>
-                <a href="index.html">Consumibles</a><br>
-                <a href="index.html">Electronica y hogar</a><br>
-                <a href="index.html">Energia</a><br>
-                <a href="index.html">Enfriamento</a><br>
-                <a href="index.html">Gabinetes</a><br>
+                <a href="index.html?0">Almacenamiento</a><br>
+                <a href="index.html?1">Audio</a><br>
+                <a href="index.html?2">Cables y accesorios</a><br>
+                <a href="index.html?3">Consumibles</a><br>
+                <a href="index.html?4">Electronica y hogar</a><br>
+                <a href="index.html?5">Energia</a><br>
+                <a href="index.html?6">Enfriamento</a><br>
+                <a href="index.html?7">Gabinetes</a><br>
             </div>
         </aside>
 
