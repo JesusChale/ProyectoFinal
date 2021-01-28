@@ -31,6 +31,7 @@ precio: '$1,307.00 MXN'}];
 
 //index.html
 var categEleg = recomendaciones;
+var queryString = parseInt(location.search.substring(1));
 
 function obtenerCateg() {
     //Carousel
@@ -40,12 +41,13 @@ function obtenerCateg() {
     var liHome = subtitulo.getElementsByTagName("li")[0];
     var categText = "";
 
-    var queryString = parseInt(location.search.substring(1));
+    
 
     switch (queryString) {
         case 0:
             categEleg = almacenamiento;
             categText = "Almacenamiento";
+
             break;
         case 1:
             categEleg = audio;
@@ -75,6 +77,9 @@ function obtenerCateg() {
             categEleg = gabinetes;
             categText = "Gabinetes";
             break;
+        default:
+            queryString = 8;
+            break;    
     }
     if (categText != "") {
         //Carousel
@@ -148,7 +153,7 @@ function llenarCateg() {
         divCont.appendChild(pPrecio);
         //a - Boton para detalles
         var aBtn = document.createElement("a");
-        aBtn.setAttribute("href","anuncio.html");
+        aBtn.setAttribute("href","producto.html?"+queryString+"&"+x);
         aBtn.setAttribute("class","boton boton-gris d-block stretched-link align-self-end mt-auto");
         var btnTxt = document.createTextNode("Ver Detalles");
         aBtn.appendChild(btnTxt);
@@ -158,4 +163,10 @@ function llenarCateg() {
 }
 
 //contacto.html
-
+function validarContacto() {
+    var valorNombre = document.getElementById("nombre").value;
+    var valorEmail = document.getElementById("email").value;
+    var valorTel = document.getElementById("telefono").value;
+    var valorDuda = document.getElementById("duda").value;
+    
+}
