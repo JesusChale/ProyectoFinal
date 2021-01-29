@@ -351,6 +351,7 @@ hr.solid {
 
 .producto .datos{
     flex-basis: 60%;
+    margin-right: 2rem;
 }
 
 .producto .subtitulos{
