@@ -1,36 +1,4 @@
-//Categorias
-var recomendaciones = [{id: 0,nombre: 'Router Mercusys MW302R 300mbps',source: 'img/Productos/845973089351.jpg',
-sourceAlt: 'Router Mercusys',precio: '$298.00 MXN'}];
-var almacenamiento = [{
-    id: 0,nombre: 'Disco Duro Solido 480GB A400 Kingston',source: 'img/Productos/740617263442.jpg',sourceAlt: 'SSD 480GB',
-    precio: '$1,445.00 MXN'},
-{id: 1, nombre: 'Disco Duro WD 3.5 1TB 72000RPM',source: 'img/Productos/WD10EZEX.jpg',sourceAlt: 'D.D.1TB WD',
-precio: '$1,148.00 MXN'},
-{id: 2,nombre:'Disco Duro Purpura WD 2TB',source: 'img/Productos/WD20PURZ.jpg',sourceAlt: 'D.D.Purpura 2TB',precio: '$1,677.00 MXN'},
-{id: 3,nombre: 'Disco Duro Solido 120GB Adata SU650',source: 'img/Productos/4713218461155.jpg',sourceAlt: 'SSD 120GB',
-precio: '$539.00 MXN'}];
-var audio = [{
-    id: 0,nombre: 'Diadema HP-300C microfono 2 jacks vorago',source: 'img/Productos/7502266670148.jpg',sourceAlt: 'Diadema HP300C',
-    precio: '$219.00 MXN'},
-{id: 1,nombre: 'Diadema Vorago HP-204',source: 'img/Productos/7502266671732.jpg',sourceAlt: 'Diadema Vorago HP-300C',
-precio: '$290.00 MXN'},
-{id: 2,nombre: 'Manos libres Vorago BTE-400 Bluetooth',source: 'img/Productos/7502266677291.jpg',sourceAlt: 'Manos libres BTE-400',
-precio: '$326.45 MXN'}];
-cables =[{id: 0,nombre:'Cable Micro USB 107 Vorago Negro',source: 'img/Productos/7502266671459.jpg',sourceAlt: 'Cable Micro USB',
-precio: '$67.00 MXN'}];
-consumibles = [{id: 0,nombre: 'Cartcuho de Tinta HP 662 Tricolor',source: 'img/Productos/886112670122.jpg',sourceAlt: 'Cartucho HP 662',
-precio: '$280.00 MXN'}];
-electronica = [{id: 0,nombre: 'Escritorio para computadora AM100GEN08',source: 'img/Productos/798302168527.png',
-sourceAlt: 'Escritorio cafe',precio: '$656.00 MXN'}];
-energia = [{id: 0,nombre: 'Power Bank PT100 Adata 1000MAH Verde',source: 'img/Productos/4712366961135.jpg',sourceAlt: 'Power Bank 1000',
-precio: '$347.00 MXN'}];
-enfriamento = [{id: 0,nombre: 'Disipador de Calor CPU Gemini M4 Cooler Master',source: 'img/Productos/884102014949.jpg',
-sourceAlt: 'Cooler Master M4',precio: '$931.00 MXN'}];
-gabinetes = [{id:0,nombre: 'Gabinete PC Slim Bern Acteck 500W', source: 'img/Productos/7506215902335.jpg',sourceAlt: 'Gabinete Bern',
-precio: '$1,307.00 MXN'}];
-
 //index.html
-var categEleg = recomendaciones;
 var queryString = parseInt(location.search.substring(1));
 
 function obtenerCateg() {
@@ -41,46 +9,48 @@ function obtenerCateg() {
     var liHome = subtitulo.getElementsByTagName("li")[0];
     var categText = "";
 
-    
-
+    //json
+    const xhttp = new XMLHttpRequest();
     switch (queryString) {
         case 0:
-            categEleg = almacenamiento;
+            xhttp.open('GET','json/almacenamiento.json',true);
             categText = "Almacenamiento";
 
             break;
         case 1:
-            categEleg = audio;
+            xhttp.open('GET','json/audio.json',true);
             categText = "Audio";
             break;
         case 2:
-            categEleg = cables;
+            xhttp.open('GET','json/cables.json',true);
             categText = "Cables y Accesorios";
             break;
         case 3:
-            categEleg = consumibles;
+            xhttp.open('GET','json/consumibles.json',true);
             categText = "Consumibles";
             break;
         case 4:
-            categEleg = electronica;
+            xhttp.open('GET','json/electronica.json',true);
             categText = "Electronica y Hogar";
             break;
         case 5:
-            categEleg = energia;
+            xhttp.open('GET','json/energia.json',true);
             categText = "Energia";
             break;
         case 6:
-            categEleg = enfriamento;
+            xhttp.open('GET','json/enfriamento.json',true);
             categText = "Enfriamento";
             break;
         case 7:
-            categEleg = gabinetes;
+            xhttp.open('GET','json/gabinetes.json',true);
             categText = "Gabinetes";
             break;
         default:
             queryString = 8;
+            xhttp.open('GET','json/recomendaciones.json',true);
             break;    
     }
+    //Carousel y Breadcrumb
     if (categText != "") {
         //Carousel
         carousel.parentElement.removeChild(carousel);
@@ -101,30 +71,25 @@ function obtenerCateg() {
         liCat.appendChild(categoria);
         subtitulo.appendChild(liCat);
     }
-
-
-}
-
-function obtener(id,categoria) {
-    //console.log(categoria.find(a=>a.id === id));
-    return categoria.find(a=>a.id === id);
-}
-
-
-function llenarCateg() {
-    obtenerCateg();
-    
-    //Obtener tamaño categoria
-    var size = 0;
-    for (var obj of categEleg){
-        size++;
+    //xhttp
+    xhttp.send();
+    xhttp.onload = function() {
+        if(xhttp.readyState === 4 && xhttp.status == 200) {
+            var datos = JSON.parse(xhttp.responseText);
+            //console.log(datos);
+            llenarCateg(datos);
+        }
     }
-    console.log("Tamaño: "+size);
+    
+}
+
+function llenarCateg(datos) {
+    
     //Obtener divisor donde estaran todos los productos
     var divPrincipal = document.getElementById("productos");
-    for (var x = 0;x<size;x++){
+    for (var x = 0;x<datos.length;x++){
         //Obtener producto
-        var product = obtener(x,categEleg);
+        var product = datos[x];
         //Divisor de anuncio
         var divProd = document.createElement("div");
         divProd.setAttribute("class","col border");
