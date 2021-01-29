@@ -163,10 +163,54 @@ function llenarCateg() {
 }
 
 //contacto.html
+
 function validarContacto() {
     var valorNombre = document.getElementById("nombre").value;
     var valorEmail = document.getElementById("email").value;
     var valorTel = document.getElementById("telefono").value;
     var valorDuda = document.getElementById("duda").value;
+    var error = [];
+    if (valorNombre == "") {
+        error.push("Nombre");
+    }
+    if (!(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(valorEmail))) {
+        error.push("E-mail");
+    }
+    if (valorTel != ""){
+        if (!(/^[0-9]{8}$/.test(valorTel))) {
+        error.push("Telefono");
+        }
+    }
+    if (valorDuda == "") {
+        error.push("Duda o Comentario");
+    }
+    console.log(error.length);
     
+    if (error.length > 0) {
+        var divAlert = document.createElement("div");
+        divAlert.setAttribute("class","alert alert-danger alert-dismissible fade show alerta");
+        divAlert.setAttribute("role","alert");
+        var btnAlert = document.createElement("button");
+        btnAlert.setAttribute("type","button");
+        btnAlert.setAttribute("class","btn-close");
+        btnAlert.setAttribute("data-dismiss","alert");
+        btnAlert.setAttribute("aria-label","Close");
+        var alertTxt = "1";
+        if (error.length == 1){
+            alertTxt = "El campo " + error[0] + " debe ser llenado correctamente";
+        } else {
+            alertTxt = "Los campos ";
+            //error.forEach(a => alertTxt += a + ", ");
+            for(var x = 0;x<(error.length-1);x++){
+                alertTxt += error[x] + ", ";
+            }
+            alertTxt += error[x] + " ";
+            alertTxt += "deben ser llenados correctamente";
+        }
+        var alertTxtNd = document.createTextNode(alertTxt);
+        divAlert.appendChild(alertTxtNd);
+        divAlert.appendChild(btnAlert);
+        var formCont = document.getElementsByClassName("contacto")[0];
+        formCont.parentNode.insertBefore(divAlert,formCont);
+    }
 }
