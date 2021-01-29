@@ -1,0 +1,26 @@
+[
+    {
+        "nombre": "Disco Duro Solido 480GB A400 Kingston",
+        "source": "img/Productos/740617263442.jpg",
+        "sourceAlt": "SSD 480GB",
+        "precio": "$1,445.00 MXN"
+    },
+    {
+        "nombre": "Disco Duro WD 3.5 1TB 72000RPM",
+        "source": "img/Productos/WD10EZEX.jpg",
+        "sourceAlt": "D.D.1TB WD",
+        "precio": "$1,148.00 MXN"
+    },
+    {
+        "nombre": "Disco Duro Purpura WD 2TB",
+        "source": "img/Productos/WD20PURZ.jpg",
+        "sourceAlt": "D.D.Purpura 2TB",
+        "precio": "$1,677.00 MXN"
+    },
+    {
+        "nombre": "Disco Duro Solido 120GB Adata SU650",
+        "source": "img/Productos/4713218461155.jpg",
+        "sourceAlt": "SSD 120GB",
+        "precio": "$539.00 MXN"
+    }
+]
