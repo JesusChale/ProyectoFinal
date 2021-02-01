@@ -367,3 +367,6 @@ legend {
     font-size: 2rem;
     color: #4f4f4f;
 }
+.hide{
+    display: none
+}
