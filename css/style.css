@@ -81,6 +81,22 @@ h4 {font-size: 2.6rem;}
     background-color: rgb(79, 79, 245);
     color: white;
 }
+.boton-danger {
+    background-color: rgb(255, 218, 7);
+    color: black;
+}
+.boton-danger:hover {
+    background-color: rgb(255, 19, 19);
+    color: white;
+}
+.boton-update {
+    background-color: rgb(7, 218, 255);
+    color: black;
+}
+.boton-update:hover {
+    background-color: rgb(180, 19, 255);
+    color: white;
+}
 /* Header */
 .site-header {
     background-color: #000000;
@@ -369,4 +385,45 @@ legend {
 }
 .hide{
     display: none
+}
+
+.estructura{
+    padding: 0rem 1rem 0 1rem;
+
+    border: 1px solid #B5B5B5;
+    background: white;
+    margin-bottom: 2rem;
+}
+
+.errorForm{
+    color: red;
+}
+
+/***** dudas.html *****/
+.card {margin: 0 2rem 0 0;}
+.card h4 {
+    font-size: 2rem;
+    display: inline-block;
+}
+.card input {
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.7rem 2rem;
+    margin-top: 1rem;
+    text-align: center;
+    border: none;
+    display: block;
+}
+.btn-group {
+    display: inline-block;
+    position: absolute; 
+    right: 20px;
+}
+.delete {
+    margin-left: auto;
+    margin-right: auto;
+}
+.card-text {
+    margin-right: 100px;
 }
