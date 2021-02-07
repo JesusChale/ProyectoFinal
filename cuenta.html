@@ -15,12 +15,13 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="javascript/formUsuarios.js"></script>
     <script type="text/javascript">
         function alerta(){
         var cuenta =document.getElementById("email").value;
         var contraseña =document.getElementById("password").value;
-        if(email.value!="" && password.value!=""){
-            document.getElementById("alertaId").classList.remove("hide");
+        if(email.value!="" && password.value!="" || email.value==null){
+            inicioSesion();
         }else{
             if(email.value=="" && password.value==""){
                 document.getElementById("alertaambas").classList.remove("hide");
@@ -36,13 +37,15 @@
            
         };
     </script>
+    
+
 </head>
 
-<body>
+<body onload="posibleCuenta()">
     <header class="site-header">
         <div class="contenedor contenido-header">
             <div class="barra">
-                <a href="/Escuela/ProgramacionWeb7Semestre/Proyecto/index.html">
+                <a href="index.html">
                     <img src="img/Logo.PNG" alt="Logotipo de Tienda Pixel">
                 </a>
 
@@ -64,6 +67,24 @@
                 <div class="alert alert-danger" >
                     <button class="close" data-dismiss="alert"><span>&times;</span></button>
                     <strong>El usuario o la contraseña no estan registradas</strong>
+                </div>
+            </div>
+            <div class="hide" id="sesionNoiniciada" >
+                <div class="alert alert-secondary" >
+                    <button class="close" data-dismiss="alert"><span>&times;</span></button>
+                    <strong>No hay una sesion iniciada</strong>
+                </div>
+            </div>
+            <div class="hide" id="cerrarSesion" >
+                <div class="alert alert-secondary" >
+                    <button class="close" data-dismiss="alert"><span>&times;</span></button>
+                    <strong>Se a cerrado sesion</strong>
+                </div>
+            </div>
+            <div class="hide" id="InicioSesion" >
+                <div class="alert alert-success" >
+                    <button class="close" data-dismiss="alert"><span>&times;</span></button>
+                    <strong>Se a iniciado sesion</strong>
                 </div>
             </div>
             <div class="hide" id="alertaContraseña" >
@@ -101,14 +122,14 @@
 
             <form action="" class="user estructura">
                 <fieldset>
-                    <legend>Usuarios existentes</legend>  
-                    <p>Si ya tienes una cuenta con nosotros, ingresa con los siguientes <br>
+                    <legend id="titulo">Usuarios existentes</legend>  
+                    <p id="texto">Si ya tienes una cuenta con nosotros, ingresa con los siguientes <br>
                     datos:</p>
                     <label for="email">E-mail:</label>
                     <input type="email" id="email" placeholder="Tu E-mail" required>
                     <label for="password">Contraseña:</label>
                     <input type="password" id="password" placeholder="Tu contraseña" required>
-                    <input type="submit" value="Continuar" class="boton boton-gris" onclick="alerta()">
+                    <input type="button" value="Continuar" class="boton boton-gris" onclick="alerta()">
                 </fieldset>
             </form>
             </div>
@@ -120,14 +141,14 @@
 
             <div class="categorias">
                 <p class="subtitulo">Categorias</p>
-                <a href="index.html">Almacenamiento</a><br>
-                <a href="index.html">Audio</a><br>
-                <a href="index.html">Cables y accesorios</a><br>
-                <a href="index.html">Consumibles</a><br>
-                <a href="index.html">Electronica y hogar</a><br>
-                <a href="index.html">Energia</a><br>
-                <a href="index.html">Enfriamento</a><br>
-                <a href="index.html">Gabinetes</a><br>
+                <a href="index.html?0">Almacenamiento</a><br>
+                <a href="index.html?1">Audio</a><br>
+                <a href="index.html?2">Cables y accesorios</a><br>
+                <a href="index.html?3">Consumibles</a><br>
+                <a href="index.html?4">Electronica y hogar</a><br>
+                <a href="index.html?5">Energia</a><br>
+                <a href="index.html?6">Enfriamento</a><br>
+                <a href="index.html?7">Gabinetes</a><br>
             </div>
         </aside>
 
@@ -139,15 +160,15 @@
             <nav class="navegacion tres-columnas">
                 <div class="footer-column">
                     <h4>Nuestra Empresa</h4>
-                    <a href="index.html">Nosotros</a>
+                    <a href="Ubicacion.HTML">Nosotros</a>
                     <a href="ayuda.html">Ayuda</a>
                     <a href="contacto.html">Contacto</a>
                 </div>
 
                 <div class="footer-column">
                     <h4>Mi cuenta</h4>
-                    <a href="contacto.html">Ingresar</a>
-                    <a href="index.html">Editar Perfil</a>
+                    <a href="cuenta.html">Ingresar</a>
+                    <a href="usuarioModDel.html">Editar Perfil</a>
                     <a href="index.html">Rastreo de pedidos</a>
                     <a href="index.html">Historico de pedidos</a>
                 </div>

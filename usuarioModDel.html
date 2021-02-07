@@ -6,22 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIXEL - Tecnología y Cómputo</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
-    
-    <script src = "javascript/formUsuarios.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="javascript/formUsuarios.js"></script>
+
 </head>
 
-<body>
+<body onload="cargarDatos()">
     <header class="site-header">
         <div class="contenedor contenido-header">
             <div class="barra">
@@ -43,43 +49,33 @@
     <div class="contenedor con-sidebar principal">
         <main class="seccion">
             <nav aria-label="breadcrumb">
-                <ol id ="subtituloOl" class="breadcrumb fw500 subtitulo">
-                  <li class="breadcrumb-item active" aria-current="page">Mi cuenta - Nuevo perfil</li>
+                <ol id="subtituloOl" class="breadcrumb fw500 subtitulo">
+                    <li class="breadcrumb-item active" aria-current="page">Mi cuenta - Eliminar / actualizar</li>
                 </ol>
             </nav>
-            <form name="nuevoUsuario" id ="formularioU"action="" class="contacto">
+            <form name="nuevoUsuario" id="formularioU" action="" class="contacto">
                 <fieldset id="formularioUsuario" class="personal estructura">
                     <legend>Datos personales</legend>
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nuevNombre" required>
-                    <p class="errorForm" id ="errorNombre"></p>
                     <label for="apellidos">Apellidos:</label>
                     <input type="text" id="apellidos" required>
-                    <p class="errorForm" id ="errorApellido"></p>
                     <label for="telefono">Telefono:</label>
-                    <input type="tel" id="telefono"  required>
-                    <p class="errorForm" id ="errorTel"></p>
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" required>
-                    <p class="errorForm" id ="errorEmail"></p>
+                    <input type="tel" id="telefono" required>
                     <label for="contraseña">Contraseña:</label>
-                    <input type="text" id="contraseña"  required>
-                    <p class="errorForm" id="errorCont"></p>
+                    <input type="text" id="contraseña" required>
                     <label for="confirmar">Confirmar contraseña:</label>
-                    <input type="text" id="confirmar"  required>
-                    <p class="errorForm" id="errorConf"></p>
+                    <input type="text" id="confirmar" required>
                 </fieldset>
 
                 <fieldset id="formularioDireccion" class="personal estructura">
                     <legend>Direccion</legend>
                     <label for="direccion1">Direccion 1:</label>
-                    <input type="text" id="direccion1"  required>
-                    <p class="errorForm" id="errorDireccion"></p>
+                    <input type="text" id="direccion1" required>
                     <label for="direccion2">Direccion 2:</label>
                     <input type="text" id="direccion2">
                     <label for="cp">Codigo postal:</label>
-                    <input type="number" id="cp"  required>
-                    <p class="errorForm" id="errorCp"></p>
+                    <input type="number" id="cp" required>
                     <label for="colonia">Colonia:</label>
                     <input type="text" id="colonia">
                 </fieldset>
@@ -87,18 +83,17 @@
                 <fieldset id="formularioLocalidad" class="personal estructura">
                     <legend>Localidad</legend>
                     <label for="ciudad">Ciudad:</label>
-                    <input type="text" id="ciudad"  required>
-                    <p class="errorForm" id="errorCiudad"></p>
+                    <input type="text" id="ciudad" required>
                     <label for="estado">Estado:</label>
-                    <input type="text" id="estado"  required>
-                    <p class="errorForm" id="errorEstado"></p>
+                    <input type="text" id="estado" required>
                     <label for="pais">Pais:</label>
-                    <input type="text" id="pais"  required>
-                    <p class="errorForm" id="errorPais"></p>
-                    
-                </fieldset> 
+                    <input type="text" id="pais" required>
+
+                </fieldset>
                 <p class="errorForm" id="usuAnterior"></p>
-                <input type="button" onclick="comprobarNuevoPerf();" value="Enviar " class="boton boton-gris">
+                <input type="button" onclick="eliminarUsuario();" value="Eliminar " class="boton boton-gris">
+                <input type="button" onclick="actualizarUsuario()" value="Actualizar " class="boton boton-gris">
+                
             </form>
         </main>
         <aside class="seccion contenedor">
@@ -120,7 +115,7 @@
     </div>
 
 
-    <footer class="site-footer seccion">
+    <footer class="site-footer seccion" >
         <div class="contenedor contenedor-footer">
             <nav class="navegacion tres-columnas">
                 <div class="footer-column">
