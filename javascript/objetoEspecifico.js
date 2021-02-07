@@ -1,13 +1,13 @@
-var id=null;
+var id = null;
 function obtenerDatos() {
 
     var queryDict = {}
-    queryDict=location.search.substring(1).split("&");
+    queryDict = location.search.substring(1).split("&");
     var queryString = parseInt(queryDict[0]);
-    id=parseInt(queryDict[1]);
+    id = parseInt(queryDict[1]);
     var categText = "";
     //console.log(queryString);
-    id= parseInt(queryDict[1]);
+    id = parseInt(queryDict[1]);
 
     //Breadcrumb
     var subtitulo = document.getElementById("subtituloOl");
@@ -16,52 +16,52 @@ function obtenerDatos() {
 
     switch (queryString) {
         case 0:
-            xhttp.open('GET','json/almacenamiento.json',true);
+            xhttp.open('GET', 'json/almacenamiento.json', true);
             categText = "Almacenamiento";
-        break;
+            break;
 
         case 1:
-            xhttp.open('GET','json/audio.json',true);
+            xhttp.open('GET', 'json/audio.json', true);
             categText = "Audio";
-        break;
+            break;
 
         case 2:
-            xhttp.open('GET','json/cables.json',true);
+            xhttp.open('GET', 'json/cables.json', true);
             categText = "Cables y Accesorios";
-        break;
-        
+            break;
+
         case 3:
-            xhttp.open('GET','json/consumibles.json',true);
+            xhttp.open('GET', 'json/consumibles.json', true);
             categText = "Consumibles";
-        break;
-        
+            break;
+
         case 4:
-            xhttp.open('GET','json/electronica.json',true);
+            xhttp.open('GET', 'json/electronica.json', true);
             categText = "Electronica y Hogar";
-        break;
-        
+            break;
+
         case 5:
-            xhttp.open('GET','json/energia.json',true);
+            xhttp.open('GET', 'json/energia.json', true);
             categText = "Energia";
-        break;
-        
+            break;
+
         case 6:
-            xhttp.open('GET','json/enfriamento.json',true);
+            xhttp.open('GET', 'json/enfriamento.json', true);
             categText = "Enfriamento";
-        break;
-        
+            break;
+
         case 7:
-            xhttp.open('GET','json/gabinetes.json',true);
+            xhttp.open('GET', 'json/gabinetes.json', true);
             categText = "Gabinetes";
-        
-        break;
-        
+
+            break;
+
         default:
             queryString = 8;
-            xhttp.open('GET','json/recomendaciones.json',true);
-        break;    
+            xhttp.open('GET', 'json/recomendaciones.json', true);
+            break;
     }
-    
+
 
     if (categText != "") {
         //Breadcrumb
@@ -69,7 +69,7 @@ function obtenerDatos() {
         liHome.classList.remove("active");
         liHome.removeAttribute("aria-current");
         var aHome = document.createElement("a");
-        aHome.setAttribute("href","index.html");
+        aHome.setAttribute("href", "index.html");
         var aText = document.createTextNode("Principal");
         aHome.appendChild(aText);
         liHome.appendChild(aHome);
@@ -84,8 +84,8 @@ function obtenerDatos() {
     }
     //xhttp
     xhttp.send();
-    xhttp.onload = function() {
-        if(xhttp.readyState === 4 && xhttp.status == 200) {
+    xhttp.onload = function () {
+        if (xhttp.readyState === 4 && xhttp.status == 200) {
             var datos = JSON.parse(xhttp.responseText);
             llenarObjeto(datos);
         }
@@ -96,148 +96,145 @@ function obtenerDatos() {
 
 
 function llenarObjeto(datos) {
-    
+
     //Obtener producto
     var product = datos[id];
-    
+
     //Llenar imagen
     var seccionImagen = document.getElementById("imagen");
-    var img=document.createElement("img");
-    img.setAttribute("src",product.source);
-    img.setAttribute("alt",product.sourceAlt);
+    var img = document.createElement("img");
+    img.setAttribute("src", product.source);
+    img.setAttribute("alt", product.sourceAlt);
     seccionImagen.appendChild(img);
-    
 
-        
+
+
     //Llenar informacion 
-    var seccionDatos=document.getElementById("inf");
-    var pNombre=document.createElement("p");
-    pNombre.setAttribute("class","subtitulos");
-    var nombre =document.createTextNode(product.nombre);
+    var seccionDatos = document.getElementById("inf");
+    var pNombre = document.createElement("p");
+    pNombre.setAttribute("class", "subtitulos");
+    var nombre = document.createTextNode(product.nombre);
     pNombre.appendChild(nombre);
     seccionDatos.appendChild(pNombre);
 
-    var hr1 =document.createElement("hr");
+    var hr1 = document.createElement("hr");
     seccionDatos.appendChild(hr1);
-    var br1 =document.createElement("br");
+    var br1 = document.createElement("br");
     seccionDatos.appendChild(br1);
 
-    var pPrecio=document.createElement("p");
-    pPrecio.setAttribute("class","subtitulos");
-    var precio =document.createTextNode("Precio: "+product.nombre);
+    var pPrecio = document.createElement("p");
+    pPrecio.setAttribute("class", "subtitulos");
+    var precio = document.createTextNode("Precio: " + product.precio);
     pPrecio.appendChild(precio);
     seccionDatos.appendChild(pPrecio);
 
-    var pesos=document.createElement("p");
-    var tipoCambio =document.createTextNode("*Pesos Mexicanos");
+    var pesos = document.createElement("p");
+    var tipoCambio = document.createTextNode("*Pesos Mexicanos");
     pesos.appendChild(tipoCambio);
     seccionDatos.appendChild(pesos);
 
-    var hr2 =document.createElement("hr");
+    var hr2 = document.createElement("hr");
     seccionDatos.appendChild(hr2);
-    var br2 =document.createElement("br");
+    var br2 = document.createElement("br");
     seccionDatos.appendChild(br2);
 
-    var btnComprar =document.createElement("button");
-    btnComprar.setAttribute("class","boton boton-gris");
-    var txtBtn =document.createTextNode("Comprar");
+    var btnComprar = document.createElement("button");
+    btnComprar.setAttribute("class", "boton boton-gris");
+    var txtBtn = document.createTextNode("Comprar");
     btnComprar.appendChild(txtBtn);
     seccionDatos.appendChild(btnComprar);
-    
+
 }
 
-function comprobarNuevoPerf(){
-    
+function comprobarNuevoPerf() {
+
     var inpNombre = document.getElementById("nuevNombre");
-    var errorNombre=document.getElementById("errorNombre");
-    if(inpNombre.value==""){
-        errorNombre.innerHTML="*No puede estar vacio este campo";
-    }else{
-        errorNombre.innerHTML="";
+    var errorNombre = document.getElementById("errorNombre");
+    if (inpNombre.value == "") {
+        errorNombre.innerHTML = "*No puede estar vacio este campo";
+    } else {
+        errorNombre.innerHTML = "";
     }
-    var inpApellidos =document.getElementById("apellidos");
-    var errorApellido=document.getElementById("errorApellido");
-    if(inpApellidos.value==""){
-        errorApellido.innerHTML="*No puede estar vacio este campo";
-    }else{
-        errorApellido.innerHTML="";
+    var inpApellidos = document.getElementById("apellidos");
+    var errorApellido = document.getElementById("errorApellido");
+    if (inpApellidos.value == "") {
+        errorApellido.innerHTML = "*No puede estar vacio este campo";
+    } else {
+        errorApellido.innerHTML = "";
     }
-    var inpTelefono =document.getElementById("telefono");
-    var errorTelefono=document.getElementById("errorTel");
-    if(inpTelefono.value==""){
-        errorTelefono.innerHTML="*No puede estar vacio este campo";
-    }else{
+    var inpTelefono = document.getElementById("telefono");
+    var errorTelefono = document.getElementById("errorTel");
+    if (inpTelefono.value == "") {
+        errorTelefono.innerHTML = "*No puede estar vacio este campo";
+    } else {
         if (!(/^[0-9]{10}$/.test(inpTelefono.value))) {
-            errorTelefono.innerHTML="*El numero de telefono solo puede ser numerico";
-        }else{
-            errorTelefono.innerHTML="";
-        }  
-    }
-    var inpEmail =document.getElementById("email");
-    var errorEmail=document.getElementById("errorEmail");
-    if(inpEmail.value==""){
-        errorEmail.innerHTML="*No puede estar vacio este campo";
-    }else{
-        if (!(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(inpEmail.value))) {
-            errorEmail.innerHTML="*La contraseña debe contener un @ y un punto";
-        }else{
-            errorEmail.innerHTML="";
+            errorTelefono.innerHTML = "*El numero de telefono solo puede ser numerico";
+        } else {
+            errorTelefono.innerHTML = "";
         }
-        
     }
-    var inpContraseña =document.getElementById("contraseña");
-    var errorCont=document.getElementById("errorCont");
-    if(inpContraseña.value==""){
-        errorCont.innerHTML="*No puede estar vacio este campo";
-    }else{
-        errorCont.innerHTML="";
+    var inpEmail = document.getElementById("email");
+    var errorEmail = document.getElementById("errorEmail");
+    if (inpEmail.value == "") {
+        errorEmail.innerHTML = "*No puede estar vacio este campo";
+    } else {
+        if (!(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(inpEmail.value))) {
+            errorEmail.innerHTML = "*El correo debe contener un @ y un punto";
+        } else {
+            errorEmail.innerHTML = "";
+        }
+
     }
-    var inpConfirmar =document.getElementById("confirmar");
-    var errorConf=document.getElementById("errorConf");
-    if(inpConfirmar.value==""){
-        errorConf.innerHTML="*No puede estar vacio este campo";
-    }else{
-        errorConf.innerHTML="";
+    var inpContraseña = document.getElementById("contraseña");
+    var errorCont = document.getElementById("errorCont");
+    if (inpContraseña.value == "") {
+        errorCont.innerHTML = "*No puede estar vacio este campo";
+    } else {
+        errorCont.innerHTML = "";
+    }
+    var inpConfirmar = document.getElementById("confirmar");
+    var errorConf = document.getElementById("errorConf");
+    if (inpConfirmar.value == "") {
+        errorConf.innerHTML = "*No puede estar vacio este campo";
+    } else {
+        errorConf.innerHTML = "";
     }
     //--------------------------------
-    var inpDireccion =document.getElementById("direccion1");
-    var errorDireccion=document.getElementById("errorDireccion");
-    if(inpDireccion.value==""){
-        errorDireccion.innerHTML="*No puede estar vacio este campo";
-    }else{
-        errorDireccion.innerHTML="";
+    var inpDireccion = document.getElementById("direccion1");
+    var errorDireccion = document.getElementById("errorDireccion");
+    if (inpDireccion.value == "") {
+        errorDireccion.innerHTML = "*No puede estar vacio este campo";
+    } else {
+        errorDireccion.innerHTML = "";
     }
-    var inpCp =document.getElementById("cp");
-    var errorCp=document.getElementById("errorCp");
-    if(inpCp.value==""){
-        errorCp.innerHTML="*No puede estar vacio este campo";
-    }else{
-        errorCp.innerHTML="";
+    var inpCp = document.getElementById("cp");
+    var errorCp = document.getElementById("errorCp");
+    if (inpCp.value == "") {
+        errorCp.innerHTML = "*No puede estar vacio este campo";
+    } else {
+        errorCp.innerHTML = "";
     }
     //_------------------------------
-    var inpCiudad =document.getElementById("ciudad");
-    var errorCiudad=document.getElementById("errorCiudad");
-    if(inpCiudad.value==""){
-        errorCiudad.innerHTML="*No puede estar vacio este campo";
-    }else{
-        errorCiudad.innerHTML="";
+    var inpCiudad = document.getElementById("ciudad");
+    var errorCiudad = document.getElementById("errorCiudad");
+    if (inpCiudad.value == "") {
+        errorCiudad.innerHTML = "*No puede estar vacio este campo";
+    } else {
+        errorCiudad.innerHTML = "";
     }
-    var inpEstado =document.getElementById("estado");
-    var errorEstado=document.getElementById("errorEstado");
-    if(inpEstado.value==""){
-        errorEstado.innerHTML="*No puede estar vacio este campo";
-    }else{
-        errorEstado.innerHTML="";
+    var inpEstado = document.getElementById("estado");
+    var errorEstado = document.getElementById("errorEstado");
+    if (inpEstado.value == "") {
+        errorEstado.innerHTML = "*No puede estar vacio este campo";
+    } else {
+        errorEstado.innerHTML = "";
     }
-    var inpPais =document.getElementById("pais");
-    var errorPais=document.getElementById("errorPais");
-    if(inpPais.value==""){
-        errorPais.innerHTML="*No puede estar vacio este campo";
-    }else{
-        errorPais.innerHTML="";
+    var inpPais = document.getElementById("pais");
+    var errorPais = document.getElementById("errorPais");
+    if (inpPais.value == "") {
+        errorPais.innerHTML = "*No puede estar vacio este campo";
+    } else {
+        errorPais.innerHTML = "";
     }
-    
-    
-
 
 }
