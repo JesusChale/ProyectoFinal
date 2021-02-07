@@ -5,39 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIXEL - Tecnología y Cómputo</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <script src="javascript/formUsuarios.js"></script>
     <script type="text/javascript">
-        function alerta(){
-        var cuenta =document.getElementById("email").value;
-        var contraseña =document.getElementById("password").value;
-        if(email.value!="" && password.value!="" || email.value==null){
-            inicioSesion();
-        }else{
-            if(email.value=="" && password.value==""){
+        function alerta() {
+            var valorEmail = document.getElementById("email").value;
+            if (email.value == "" && password.value == "") {
                 document.getElementById("alertaambas").classList.remove("hide");
-            }else{
-                if(email.value!="" && password.value==""){
+
+            } else {
+                if (email.value != "" && password.value == "") {
                     document.getElementById("alertaContraseña").classList.remove("hide");
-                }else{
-                    document.getElementById("alertaCorreo").classList.remove("hide");
+                } else {
+                    if (email.validity.valueMissing && email.value == "" && password.value != "") {
+                        document.getElementById("alertaCorreo").classList.remove("hide");
+
+                    } else {
+                        if (!(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(valorEmail))) {
+                            document.getElementById("alertaCorreoin").classList.remove("hide");
+                        } else {
+                            inicioSesion();
+                        }
+
+                    }
+
                 }
-                
             }
-        }
-           
+
         };
     </script>
-    
+
 
 </head>
 
@@ -61,80 +74,86 @@
     </header>
 
     <div class="contenedor con-sidebar principal">
-        
+
         <main class="seccion">
-            <div class="hide" id="alertaId" >
-                <div class="alert alert-danger" >
+            <div class="hide" id="alertaId">
+                <div class="alert alert-danger">
                     <button class="close" data-dismiss="alert"><span>&times;</span></button>
                     <strong>El usuario o la contraseña no estan registradas</strong>
                 </div>
             </div>
-            <div class="hide" id="sesionNoiniciada" >
-                <div class="alert alert-secondary" >
+            <div class="hide" id="alertaCorreoin">
+                <div class="alert alert-danger">
+                    <button class="close" data-dismiss="alert"><span>&times;</span></button>
+                    <strong>No contiene formato de correo (@hotmail.com, @outlock.com, @gmail.com etc..)</strong>
+                </div>
+            </div>
+            <div class="hide" id="sesionNoiniciada">
+                <div class="alert alert-secondary">
                     <button class="close" data-dismiss="alert"><span>&times;</span></button>
                     <strong>No hay una sesion iniciada</strong>
                 </div>
             </div>
-            <div class="hide" id="cerrarSesion" >
-                <div class="alert alert-secondary" >
+            <div class="hide" id="cerrarSesion">
+                <div class="alert alert-secondary">
                     <button class="close" data-dismiss="alert"><span>&times;</span></button>
                     <strong>Se a cerrado sesion</strong>
                 </div>
             </div>
-            <div class="hide" id="InicioSesion" >
-                <div class="alert alert-success" >
+            <div class="hide" id="InicioSesion">
+                <div class="alert alert-success">
                     <button class="close" data-dismiss="alert"><span>&times;</span></button>
                     <strong>Se a iniciado sesion</strong>
                 </div>
             </div>
-            <div class="hide" id="alertaContraseña" >
-                <div class="alert alert-danger" >
+            <div class="hide" id="alertaContraseña">
+                <div class="alert alert-danger">
                     <button class="close" data-dismiss="alert"><span>&times;</span></button>
                     <strong>No escribio la contraseña</strong>
                 </div>
             </div>
-            <div class="hide" id="alertaCorreo" >
-                <div class="alert alert-danger" >
+            <div class="hide" id="alertaCorreo">
+                <div class="alert alert-danger">
                     <button class="close" data-dismiss="alert"><span>&times;</span></button>
                     <strong>No escribio el correo</strong>
                 </div>
             </div>
-            <div class="hide" id="alertaambas" >
-                <div class="alert alert-danger" >
+            <div class="hide" id="alertaambas">
+                <div class="alert alert-danger">
                     <button class="close" data-dismiss="alert"><span>&times;</span></button>
                     <strong>No escribio la contraseña ni el correo</strong>
                 </div>
             </div>
             <nav aria-label="breadcrumb">
-                <ol id ="subtituloOl" class="breadcrumb fw500 subtitulo">
-                  <li class="breadcrumb-item active" aria-current="page">Mi cuenta</li>
+                <ol id="subtituloOl" class="breadcrumb fw500 subtitulo">
+                    <li class="breadcrumb-item active" aria-current="page">Mi cuenta</li>
                 </ol>
             </nav>
             <div class="cuenta">
                 <section class="new-user">
-                <p><strong>Usuarios nuevos</strong></p>
-                <p>Una vez que hayas creado tu cuenta, tendras una clave de
-                    usuario y contraseña que podras utilizar la proxima vez que
-                    realices una compra con nosotros</p>
+                    <p><strong>Usuarios nuevos</strong></p>
+                    <p>Una vez que hayas creado tu cuenta, tendras una clave de
+                        usuario y contraseña que podras utilizar la proxima vez que
+                        realices una compra con nosotros</p>
 
                     <a href="nuevoPerf.html" class="boton boton-gris">Crear cuenta</a>
-            </section>
+                </section>
 
-            <form action="" class="user estructura">
-                <fieldset>
-                    <legend id="titulo">Usuarios existentes</legend>  
-                    <p id="texto">Si ya tienes una cuenta con nosotros, ingresa con los siguientes <br>
-                    datos:</p>
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" placeholder="Tu E-mail" required>
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="password" placeholder="Tu contraseña" required>
-                    <input type="button" value="Continuar" class="boton boton-gris" onclick="alerta()">
-                </fieldset>
-            </form>
+                <form action="" class="user estructura">
+                    <fieldset>
+                        <legend id="titulo">Usuarios existentes</legend>
+                        <p id="texto">Si ya tienes una cuenta con nosotros, ingresa con los siguientes <br>
+                            datos:</p>
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" placeholder="Tu E-mail" required>
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="password" placeholder="Tu contraseña" required>
+                        <input type="button" value="Continuar" class="boton boton-gris" onclick="alerta()">
+                    </fieldset>
+                </form>
             </div>
-            
-            
+
+
         </main>
         <aside class="seccion contenedor">
             <input type="text" id="nombre" placeholder="Buscar">
