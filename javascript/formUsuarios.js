@@ -14,6 +14,7 @@ class usuario {
     this.pais = pais;
     this.uso = uso;
   }
+  
 }
 
 function comprobarNuevoPerf() {
@@ -278,6 +279,7 @@ function inicioSesion() {
         usuarioUsando = conjunto[i];
         var removed = conjunto.splice(i, 1, usuarioUsando);
         localStorage.setItem('usuarios', JSON.stringify(conjunto));
+        
         document.getElementById("cerrarSesion").classList.remove("hide");
         }else{
           document.getElementById("alertaId").classList.remove("hide");
@@ -294,7 +296,6 @@ function inicioSesion() {
           inicio=true;
           var removed = conjunto.splice(i, 1, usuarioUsando);
           localStorage.setItem('usuarios', JSON.stringify(conjunto));
-          document.getElementById("InicioSesion").classList.remove("hide");
         }
       }
     }
